@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posto SM | Sua Parada Completa na BR 230</title>
+    <meta name="description" content="Complexo rodoviário em Francisco Santos - PI. Combustível de qualidade, loja de conveniência, hotel, lavagem e lubrificação automotiva na BR 230.">
+    <meta name="robots" content="index, follow">
+    
+    <style>
+        /* --- ESTILOS GERAIS E VARIÁVEIS --- */
+        :root {
+            --primary: #dc2626;       /* Vermelho Posto / Alta Visibilidade */
+            --primary-dark: #991b1b;
+            --secondary: #eab308;     /* Amarelo Sinalização */
+            --secondary-hover: #ca8a04;
+            --dark: #1f2937;          /* Asfalto / Cinza Escuro */
+            --text-dark: #374151;
+            --text-light: #f9fafb;
+            --bg-light: #f3f4f6;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- BOTÕES --- */
+        .btn {
+            display: inline-block;
+            padding: 16px 36px;
+            background-color: var(--secondary);
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+            color: var(--white);
+        }
+
+        /* --- CADEÇALHO (NAVBAR) --- */
+        header {
+            background-color: var(--dark);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border-bottom: 4px solid var(--primary);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            color: var(--text-light);
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-menu a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover {
+            color: var(--secondary);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(31, 41, 55, 0.7), rgba(31, 41, 55, 0.9)), 
+                        url('https://images.unsplash.com/photo-1563222384-cbca4301d2ce?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--text-light);
+            padding: 140px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            color: #d1d5db;
+            font-weight: 500;
+        }
+
+        /* --- QUEM SOMOS --- */
+        .about {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--dark);
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .section-title span {
+            color: var(--primary);
+        }
+
+        .about-text {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 18px;
+            color: #4b5563;
+            line-height: 1.8;
+        }
+
+        /* --- SERVIÇOS DO COMPLEXO (CNAES) --- */
+        .services {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border-bottom: 4px solid var(--dark);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-bottom-color: var(--primary);
+        }
+
+        .service-icon {
+            height: 150px;
+            background-color: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            background-blend-mode: overlay;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .bg-gas { background-image: url('https://images.unsplash.com/photo-1545642412-fbc958614cb0?auto=format&fit=crop&w=500&q=80'); }
+        .bg-store { background-image: url('https://images.unsplash.com/photo-1567365607222-1d5d2c49987c?auto=format&fit=crop&w=500&q=80'); }
+        .bg-wash { background-image: url('https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=500&q=80'); }
+        .bg-hotel { background-image: url('https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=500&q=80'); }
+
+        .service-info {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .service-info h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--dark);
+            font-weight: 800;
+        }
+
+        .service-info p {
+            font-size: 15px;
+            color: #6b7280;
+        }
+
+        /* --- CONTATO E LOCALIZAÇÃO --- */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--dark);
+            color: var(--text-light);
+        }
+
+        .contact .section-title {
+            color: var(--white);
+        }
+
+        .contact-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .info-item {
+            margin-bottom: 25px;
+            background-color: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .info-item strong {
+            display: block;
+            color: var(--secondary);
+            font-size: 14px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .info-item p {
+            font-size: 16px;
+        }
+
+        .contact-form {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            color: var(--dark);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 4px;
+            font-size: 15px;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* --- FOOTER EXIGIDO PELO GOOGLE ADS --- */
+        footer {
+            background-color: #111827;
+            color: #9ca3af;
+            padding: 50px 0 20px 0;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 25px;
+        }
+
+        .footer-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-legal {
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.8;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 25px;
+        }
+
+        /* --- BANNER DE COOKIES --- */
+        .cookie-banner {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            z-index: 9999;
+            border: 2px solid var(--primary);
+        }
+
+        .cookie-text { font-size: 14px; max-width: 75%; }
+
+        .cookie-btn {
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 4px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .cookie-btn:hover { background-color: var(--primary-dark); }
+
+        /* --- MODAIS DE POLÍTICA/TERMOS --- */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 10000;
+            justify-content: center; align-items: center; padding: 20px;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            max-width: 800px; width: 100%; max-height: 85vh;
+            overflow-y: auto; position: relative;
+            color: var(--text-dark);
+        }
+
+        .close-modal {
+            position: absolute; top: 15px; right: 25px;
+            font-size: 30px; cursor: pointer; color: var(--dark); font-weight: bold;
+        }
+
+        .modal-content h2 { color: var(--dark); margin-bottom: 20px; text-transform: uppercase; font-weight: 900; }
+        .modal-content h3 { color: var(--primary); margin: 20px 0 10px 0; font-size: 18px; }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 15px; }
+            .hero h1 { font-size: 36px; }
+            .cookie-banner { flex-direction: column; text-align: center; }
+            .cookie-text { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV BAR -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">POSTO <span>SM</span></div>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">O Complexo</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#contato">Localização</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <h1>Sua Parada Estratégica na BR 230</h1>
+            <p>Mais que um posto de combustível. Um complexo rodoviário completo com conveniência, hotelaria, lubrificação automotiva e infraestrutura para quem vive na estrada.</p>
+            <a href="#contato" class="btn">Veja como chegar</a>
+        </div>
+    </section>
+
+    <!-- QUEM SOMOS -->
+    <section id="sobre" class="about">
+        <div class="container">
+            <h2 class="section-title">O Complexo <span>Posto SM</span></h2>
+            <p class="about-text">
+                A <strong>Posto de Combustivel Sm LTDA</strong> é uma estrutura empresarial projetada para atender motoristas de passeio e profissionais do transporte de cargas na região de Francisco Santos, Piauí. Nossa matriz atua com rigoroso controle de qualidade no comércio varejista de combustíveis. Entendendo a necessidade de quem viaja pela BR 230, expandimos nossas operações para oferecer um verdadeiro hub de serviços automotivos, alimentação e descanso de forma segura e acessível.
+            </p>
+        </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section id="servicos" class="services">
+        <div class="container">
+            <h2 class="section-title">Infraestrutura e <span>Serviços</span></h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon bg-gas">Abastecimento</div>
+                    <div class="service-info">
+                        <h3>Combustíveis</h3>
+                        <p>Combustíveis com qualidade garantida. Bombas de alta vazão para veículos pesados, gasolina, etanol e diesel de procedência.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon bg-store">Conveniência</div>
+                    <div class="service-info">
+                        <h3>Loja de Conveniência</h3>
+                        <p>Ambiente climatizado com lanches rápidos, bebidas, produtos de mercearia e utilidades para tornar sua viagem mais confortável.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon bg-wash">Centro Automotivo</div>
+                    <div class="service-info">
+                        <h3>Lavagem e Lubrificação</h3>
+                        <p>Box especializado para troca de óleo, lubrificação de chassis, reparação de acessórios e lavagem completa para veículos automotores.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon bg-hotel">Descanso</div>
+                    <div class="service-info">
+                        <h3>Hotelaria</h3>
+                        <p>Quartos limpos e estruturados para o descanso do motorista. Uma pausa segura para recarregar as energias antes de voltar à rodovia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATO E LOCALIZAÇÃO -->
+    <section id="contato" class="contact">
+        <div class="container">
+            <h2 class="section-title" style="color: var(--white);">Nossa <span>Localização</span></h2>
+            <div class="contact-box">
+                <div>
+                    <p style="margin-bottom: 30px; font-size: 18px; color: #d1d5db;">Estamos estrategicamente posicionados na Zona Rural de Francisco Santos - PI, prontos para atender você 24 horas por dia.</p>
+                    <div class="info-item">
+                        <strong>Endereço na Rodovia</strong>
+                        <p>Rodovia BR 230, SN, Km 344<br>Zona Rural, Francisco Santos - PI<br>CEP: 64645-000</p>
+                    </div>
+                    <div class="info-item">
+                        <strong>Telefone de Atendimento</strong>
+                        <p>(62) 99100-0000</p>
+                    </div>
+                    <div class="info-item">
+                        <strong>E-mail Administrativo</strong>
+                        <p>contato@postosm.com.br</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3 style="margin-bottom: 20px; font-weight: 800; text-transform: uppercase;">Fale com a Administração</h3>
+                    <form onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso! A gerência do Posto SM responderá em breve.');">
+                        <div class="form-group">
+                            <label for="nome">Nome Completo</label>
+                            <input type="text" id="nome" required placeholder="Seu nome">
+                        </div>
+                        <div class="form-group">
+                            <label for="contato-fone">Telefone / WhatsApp</label>
+                            <input type="text" id="contato-fone" required placeholder="(DDD) Número">
+                        </div>
+                        <div class="form-group">
+                            <label for="mensagem">Dúvida ou Sugestão</label>
+                            <textarea id="mensagem" rows="4" required placeholder="Escreva sua mensagem aqui..."></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER INSTITUCIONAL (Exigido pelas Políticas do Google Ads) -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#" onclick="openModal('policyModal'); return false;">Política de Privacidade</a> | 
+                <a href="#" onclick="openModal('termsModal'); return false;">Termos de Operação</a>
+            </div>
+            <div class="footer-legal">
+                © 2026 <strong>Posto de Combustivel Sm LTDA</strong>. Todos os direitos reservados.<br>
+                Nome Fantasia: Posto Sm | CNPJ: 66.966.306/0001-05 | Capital Social: R$ 200.000,00<br>
+                Sede Operacional: Rodovia BR 230, SN, Km 344, Zona Rural, Francisco Santos - PI, CEP 64645-000<br>
+                Situação Cadastral: Empresa Ativa e Regularizada (Abertura: 25/05/2026).<br>
+                <span style="font-size: 11px; display:block; margin-top:15px; opacity: 0.5;">Canal de comunicação oficial com total adequação jurídica às políticas de anunciante das plataformas de pesquisa e Google Ads.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BANNER DE COOKIES -->
+    <div id="cookieBanner" class="cookie-banner">
+        <div class="cookie-text">
+            Este site institucional utiliza cookies e tecnologias de monitoramento para garantir a melhor experiência, analisar métricas de tráfego rodoviário online e promover campanhas, em conformidade com a nossa Política de Privacidade.
+        </div>
+        <button class="cookie-btn" onclick="acceptCookies()">Compreendo e Aceito</button>
+    </div>
+
+    <!-- MODAL POLÍTICA DE PRIVACIDADE -->
+    <div id="policyModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('policyModal')">&times;</span>
+            <h2>Política de Privacidade</h2>
+            <p>O <strong>Posto de Combustivel Sm LTDA</strong> está comprometido com a segurança e privacidade de seus clientes e usuários digitais.</p>
+            <h3>1. Coleta de Informações</h3>
+            <p>No ambiente digital, coletamos apenas os dados voluntariamente inseridos em nosso formulário de contato (nome, telefone e mensagem) com o intuito de responder a dúvidas comerciais, reservas de hotelaria ou prestação de contas.</p>
+            <h3>2. Tratamento de Dados (LGPD)</h3>
+            <p>As informações armazenadas administrativamente não são vendidas ou compartilhadas com empresas terceiras, exceto por ordem judicial ou cumprimento de obrigações fiscais da matriz.</p>
+            <h3>3. Ambiente Físico</h3>
+            <p>Informamos que o ambiente físico do complexo (pistas de abastecimento, conveniência e hotel) pode possuir monitoramento de câmeras de segurança para garantir a integridade dos nossos clientes e patrimônio.</p>
+        </div>
+    </div>
+
+    <!-- MODAL TERMOS DE USO -->
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('termsModal')">&times;</span>
+            <h2>Termos de Operação e Uso</h2>
+            <p>Ao navegar por este site ou utilizar nossas instalações físicas, os usuários concordam com os seguintes termos baseados em nossos CNAEs operacionais:</p>
+            <h3>1. Precificação e Estoque</h3>
+            <p>Este site possui caráter institucional. Os preços dos combustíveis, taxas de hospedagem (Hotel) e produtos de conveniência estão sujeitos a alterações diárias diretamente nos painéis e balcões da unidade física na BR 230.</p>
+            <h3>2. Serviços Automotivos</h3>
+            <p>Os serviços de manutenção, lavagem, lubrificação e reparação de acessórios estão condicionados à disponibilidade técnica e agendamento/ordem de chegada no próprio complexo rodoviário.</p>
+            <h3>3. Transparência Corporativa</h3>
+            <p>Mantemos todos os dados de registro societário, endereço e contatos no rodapé da página para garantir clareza, transparência e aprovação fidedigna perante nossos fornecedores e reguladores de publicidade digital.</p>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        window.onload = function() {
+            if (!localStorage.getItem('postoSmCookies')) {
+                document.getElementById('cookieBanner').style.display = 'flex';
+            }
+        };
+
+        function acceptCookies() {
+            localStorage.setItem('postoSmCookies', 'true');
+            document.getElementById('cookieBanner').style.display = 'none';
+        }
+
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto'; 
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+</html>
